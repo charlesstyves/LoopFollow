@@ -17,7 +17,7 @@ enum InfoType: Int, CaseIterable {
         case .pumpBattery: return "Pump Battery"
         case .sage: return "SAGE"
         case .cage: return "CAGE"
-        case .recBolus: return "Rec. Bolus"
+        case .recBolus: return " "
         case .minMax: return "Min/Max"
         case .carbsToday: return "Carbs today"
         case .autosens: return "Autosens"
