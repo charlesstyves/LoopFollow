@@ -4,7 +4,7 @@
 import SwiftUI
 
 struct SnoozerView: View {
-    @StateObject private var vm = SnoozerViewModel
+    @StateObject private var vm = SnoozerViewModel()
 
     @ObservedObject var showDisplayName = Storage.shared.showDisplayName
     @ObservedObject var minAgoText = Observable.shared.minAgoText
