@@ -475,7 +475,7 @@ struct SnoozerView: View {
     // MARK: - Snoozer Bar helpers
 
     private func presentSnoozerBar() {
-        showSnoozerBar = true
+        showSnoozerBar = false
         if isGlobalSnoozeActive || vm.activeAlarm != nil {
             cancelAutoHide()
         } else {
@@ -517,7 +517,7 @@ struct SnoozerView: View {
 
         cfgStore.value.snoozeUntil = Date().addingTimeInterval(3600)
 
-        showSnoozerBar = true
+        showSnoozerBar = false
         cancelAutoHide()
     }
 
