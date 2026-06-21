@@ -4,7 +4,7 @@
 import SwiftUI
 
 struct SnoozerView: View {
-    @StateObject private var vm = SnoozerViewModel()
+    @StateObject private var vm = SnoozerViewModel
 
     @ObservedObject var showDisplayName = Storage.shared.showDisplayName
     @ObservedObject var minAgoText = Observable.shared.minAgoText
@@ -63,7 +63,7 @@ struct SnoozerView: View {
                     if lastActiveState != active {
                         lastActiveState = active
                         if active {
-                            showSnoozerBar = true
+                            showSnoozerBar = false
                             cancelAutoHide()
                         } else {
                             scheduleAutoHide()
@@ -72,7 +72,7 @@ struct SnoozerView: View {
                 }
                 .onReceive(vm.$activeAlarm) { alarm in
                     if alarm != nil {
-                        showSnoozerBar = true
+                        showSnoozerBar = false
                         cancelAutoHide()
                     } else {
                         // When alarm is dismissed, schedule auto-hide if no global snooze is active
@@ -83,7 +83,7 @@ struct SnoozerView: View {
                 }
                 .onChange(of: isGlobalSnoozeActive) { active in
                     if active {
-                        showSnoozerBar = true
+                        showSnoozerBar = false
                         cancelAutoHide()
                     } else {
                         scheduleAutoHide()
