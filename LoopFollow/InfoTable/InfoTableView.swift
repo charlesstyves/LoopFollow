@@ -36,7 +36,7 @@ struct InfoTableView: View {
     private func row(name: String, value: String, valueColor: Color? = nil) -> some View {
         // Show a placeholder for any field that has no value yet,
         // so the row reads as "no data" rather than appearing empty.
-        let displayValue = value.isEmpty ? "—" : value
+        let displayValue = value.isEmpty ? " " : value
 
         return ViewThatFits(in: .horizontal) {
             // Preferred: compact single line (label — value)
