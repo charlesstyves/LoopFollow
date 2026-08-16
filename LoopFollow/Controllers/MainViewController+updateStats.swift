@@ -7,16 +7,13 @@ extension MainViewController {
     func updateStats() {
         if bgData.count > 0 {
             var lastDayOfData = bgData
-            let graphHours = 24 * Storage.shared.downloadDays.value
-            // If we loaded more than 1 day of data, only use the last day for the stats
-            if graphHours > 24 {
-                let oneDayAgo = dateTimeUtils.getTimeIntervalNHoursAgo(N: 24)
-                var startIndex = 0
-                while startIndex < bgData.count, bgData[startIndex].date < oneDayAgo {
-                    startIndex += 1
-                }
-                lastDayOfData = Array(bgData.dropFirst(startIndex))
+            let startOfToday = Calendar.current.startOfDay(for: Date()).timeIntervalSince1970
+            
+            var startIndex = 0
+            while startIndex < bgData.count, bgData[startIndex].date < startOfToday {
+                startIndex += 1
             }
+            lastDayOfData = Array(bgData.dropFirst(startIndex))
 
             let stats = StatsData(bgData: lastDayOfData)
 
