@@ -68,6 +68,6 @@ struct InfoColoring: Codable, Equatable {
             if let urgent, value <= urgent { return .red }
             if let warning, value <= warning { return .yellow }
         }
-        return .white
+        return nil
     }
 }
