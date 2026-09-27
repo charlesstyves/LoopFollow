@@ -142,13 +142,13 @@ final class BannerManager {
                 text = "Dexcom Share: login failed (\(errorCode))."
             }
         case .httpError:
-            text = "Dexcom Share: network error while downloading."
+//            text = "Dexcom Share: network error while downloading."
         case .fetchError, .dataError, .dateError:
-            text = "Dexcom Share: could not download readings."
+//            text = "Dexcom Share: could not download readings."
         }
 
         if nightscoutFallback {
-            text += " Using Nightscout as backup."
+//            text += " Using Nightscout as backup."
         }
         report(source: .dexcom, severity: nightscoutFallback ? .warning : .error, text: text)
     }
