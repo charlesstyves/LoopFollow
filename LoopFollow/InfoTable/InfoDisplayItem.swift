@@ -62,7 +62,7 @@ struct InfoColoring: Codable, Equatable {
         switch level(for: value, direction: direction) {
         case .urgent: .red
         case .warning: .yellow
-        case .normal: .green
+        case .normal: nil
         case nil: nil
         }
     }
