@@ -5,6 +5,7 @@ import Foundation
 
 enum InfoType: Int, CaseIterable, Codable {
     case iob, cob, basal, override, battery, pump, pumpBattery, sage, cage, recBolus, minMax, carbsToday, autosens, profile, target, isf, carbRatio, updated, tdd, iage, dbSize, smoothedBG
+    case spacer1, spacer2, spacer3
 
     var name: String {
         switch self {
@@ -15,8 +16,8 @@ enum InfoType: Int, CaseIterable, Codable {
         case .battery: return "Battery"
         case .pump: return "Pump"
         case .pumpBattery: return "Pump Battery"
-        case .sage: return "SAGE"
-        case .cage: return "CAGE"
+        case .sage: return "Dexcom"
+        case .cage: return "Omnipod"
         case .recBolus: return "Rec. Bolus"
         case .minMax: return "Min/Max"
         case .carbsToday: return "Carbs today"
@@ -30,6 +31,7 @@ enum InfoType: Int, CaseIterable, Codable {
         case .iage: return "IAGE"
         case .dbSize: return "DB Size"
         case .smoothedBG: return "Smoothed BG"
+        case .spacer1, .spacer2, .spacer3: return " "
         }
     }
 
