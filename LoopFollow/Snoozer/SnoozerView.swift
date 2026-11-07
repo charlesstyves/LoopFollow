@@ -71,7 +71,7 @@ struct SnoozerView: View {
                     if lastActiveState != active {
                         lastActiveState = active
                         if active {
-                            showSnoozerBar = true
+                            showSnoozerBar = false
                             cancelAutoHide()
                         } else {
                             scheduleAutoHide()
@@ -80,7 +80,7 @@ struct SnoozerView: View {
                 }
                 .onReceive(vm.$activeAlarm) { alarm in
                     if alarm != nil {
-                        showSnoozerBar = true
+                        showSnoozerBar = false
                         cancelAutoHide()
                     } else {
                         // When alarm is dismissed, schedule auto-hide if no global snooze is active
@@ -91,7 +91,7 @@ struct SnoozerView: View {
                 }
                 .onChange(of: isGlobalSnoozeActive) { active in
                     if active {
-                        showSnoozerBar = true
+                        showSnoozerBar = false
                         cancelAutoHide()
                     } else {
                         scheduleAutoHide()
@@ -510,7 +510,7 @@ struct SnoozerView: View {
     // MARK: - Snoozer Bar helpers
 
     private func presentSnoozerBar() {
-        showSnoozerBar = true
+        showSnoozerBar = false
         if isGlobalSnoozeActive || vm.activeAlarm != nil {
             cancelAutoHide()
         } else {
@@ -552,7 +552,7 @@ struct SnoozerView: View {
 
         cfgStore.value.snoozeUntil = Date().addingTimeInterval(3600)
 
-        showSnoozerBar = true
+        showSnoozerBar = false
         cancelAutoHide()
     }
 
